@@ -1,1 +1,1 @@
-# js-library-project
+    This is a project intended to help reinforce the concepts of constructors and prototypal inheritance in javascript.
