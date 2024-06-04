@@ -8,9 +8,26 @@
     <title>JS Library Project</title>
 </head>
 <body>
-    <button class="new-book">NEW BOOK</button>
     <div id="card-container">
-        <div class="card">Test</div>
+    </div>
+    <button class="new-book">NEW BOOK</button>
+    <div class="sidebar">
+        <form action="#" id="add-book">
+            <label for="title">Title</label>
+            <input type="text" id="title" name="title" required>
+            <label for="author">Author</label>
+            <input type="text" id="author" name="author" required>
+            <label for="page-num">Number of Pages</label>
+            <input type="text" id="page-num" name="page-num" required>
+            <fieldset id="read-or-not">
+                <legend>Have you read this book?</legend>
+                <input type="radio" id="yes" name="read" value="true">
+                <label for="yes">Yes</label>
+                <input type="radio" id="no" name="read" value="false">
+                <label for="no">No</label>
+            </fieldset>
+            <button type="submit">Add book</button>
+        </form>
     </div>
 </body>
 </html>
