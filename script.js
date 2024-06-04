@@ -1,7 +1,6 @@
 let myLibrary = [];
 const cardContainer = document.querySelector('#card-container');
 
-
 function Book(title, author, pages, read) {
     this.title = title;
     this.author = author;
@@ -74,7 +73,6 @@ function addBookCard(title, author, pages, read) {
 }
 
 let sidebarBtn = document.querySelector('#new-book');
-console.log(sidebarBtn);
 
 sidebarBtn.addEventListener('click', (e) => {
     bookForm.classList.toggle('hidden');
@@ -83,6 +81,3 @@ sidebarBtn.addEventListener('click', (e) => {
 let dune = new Book('Dune', 'Frank Herbert', '896', 'true');
 addBookToLibrary(dune);
 displayBook(dune);
-
-console.log(dune);
-console.log(myLibrary);
