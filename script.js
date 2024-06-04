@@ -1,4 +1,4 @@
-const myLibrary = [];
+let myLibrary = [];
 const cardContainer = document.querySelector('#card-container');
 
 
@@ -16,18 +16,6 @@ function addBookToLibrary(book) {
     myLibrary.push(book);
 }
 
-/*
-function displayBooks() {
-    myLibrary.forEach(
-        function(book) {
-            let bookCard = document.createElement('div');
-            bookCard.setAttribute('class', 'card');
-            bookCard.innerText = book.info();
-            cardContainer.appendChild(bookCard);
-    });
-}
-*/
-
 function displayBook(book) {
     let bookCard = document.createElement('div');
     let removeBtn = document.createElement('button');
@@ -39,6 +27,13 @@ function displayBook(book) {
 
     removeBtn.setAttribute('class', 'removeBtn');
     removeBtn.innerText = 'Remove';
+    removeBtn.addEventListener('click', (e) => {
+        cardContainer.removeChild(bookCard);
+        let newLibraryArr = myLibrary.filter((entry) => {
+            return entry !== myLibrary[myLibrary.indexOf(book)];
+        });
+        myLibrary = newLibraryArr;
+    });
 
     readStatusBtn.setAttribute('class', 'readStatusBtn');
     readStatusBtn.innerText = 'Toggle Read';
@@ -67,8 +62,6 @@ function addBookCard(title, author, pages, read) {
     addBookToLibrary(book);
     displayBook(book);
 }
-
- 
 
 let dune = new Book('Dune', 'Frank Herbert', '896', true);
 addBookToLibrary(dune);
