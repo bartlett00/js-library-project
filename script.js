@@ -16,6 +16,7 @@ function addBookToLibrary(book) {
     myLibrary.push(book);
 }
 
+/*
 function displayBooks() {
     myLibrary.forEach(
         function(book) {
@@ -25,12 +26,26 @@ function displayBooks() {
             cardContainer.appendChild(bookCard);
     });
 }
+*/
 
 function displayBook(book) {
     let bookCard = document.createElement('div');
+    let removeBtn = document.createElement('button');
+    let readStatusBtn = document.createElement('button');
+
     bookCard.setAttribute('class', 'card');
-    bookCard.innerText = book.info();
+    bookCard.setAttribute('data-index', myLibrary.indexOf(book));
+    bookCard.innerText = book.info();    
+
+    removeBtn.setAttribute('class', 'removeBtn');
+    removeBtn.innerText = 'Remove';
+
+    readStatusBtn.setAttribute('class', 'readStatusBtn');
+    readStatusBtn.innerText = 'Toggle Read';
+
     cardContainer.appendChild(bookCard);
+    bookCard.appendChild(removeBtn);
+    bookCard.appendChild(readStatusBtn);
 }
 
 
@@ -44,20 +59,20 @@ bookForm.addEventListener('submit', (e) => {
     let newPageNum = document.getElementById('page-num').value;
     let newRead = bookForm.elements['read'].value;
 
-    bookFormSidebar(newTitle, newAuthor, newPageNum, newRead);
+    addBookCard(newTitle, newAuthor, newPageNum, newRead);
 });
 
-function bookFormSidebar(title, author, pages, read) {
+function addBookCard(title, author, pages, read) {
     let book = new Book(title, author, pages, read);
     addBookToLibrary(book);
     displayBook(book);
 }
 
-
+ 
 
 let dune = new Book('Dune', 'Frank Herbert', '896', true);
 addBookToLibrary(dune);
-displayBooks();
+displayBook(dune);
 
 console.log(dune);
 console.log(myLibrary);
