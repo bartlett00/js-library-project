@@ -11,6 +11,6 @@
     background-color: #ccc;
 }
 
-.removeBtn {
-    
+.hidden {
+    display: none;
 }

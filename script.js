@@ -25,6 +25,19 @@ function displayBook(book) {
     bookCard.setAttribute('data-index', myLibrary.indexOf(book));
     bookCard.innerText = book.info();    
 
+    readStatusBtn.setAttribute('class', 'readStatusBtn');
+    readStatusBtn.innerText = 'Toggle Read';
+    readStatusBtn.addEventListener('click', (e) => {
+        if(book.read == 'true') {
+            book.read = 'false';
+        } else {
+            book.read = 'true';
+        }
+        bookCard.textContent = book.info();
+        bookCard.appendChild(removeBtn);
+        bookCard.appendChild(readStatusBtn);
+    });
+
     removeBtn.setAttribute('class', 'removeBtn');
     removeBtn.innerText = 'Remove';
     removeBtn.addEventListener('click', (e) => {
@@ -35,14 +48,11 @@ function displayBook(book) {
         myLibrary = newLibraryArr;
     });
 
-    readStatusBtn.setAttribute('class', 'readStatusBtn');
-    readStatusBtn.innerText = 'Toggle Read';
 
     cardContainer.appendChild(bookCard);
     bookCard.appendChild(removeBtn);
     bookCard.appendChild(readStatusBtn);
 }
-
 
 let bookForm = document.getElementById('add-book');
 
@@ -63,7 +73,14 @@ function addBookCard(title, author, pages, read) {
     displayBook(book);
 }
 
-let dune = new Book('Dune', 'Frank Herbert', '896', true);
+let sidebarBtn = document.querySelector('#new-book');
+console.log(sidebarBtn);
+
+sidebarBtn.addEventListener('click', (e) => {
+    bookForm.classList.toggle('hidden');
+});
+
+let dune = new Book('Dune', 'Frank Herbert', '896', 'true');
 addBookToLibrary(dune);
 displayBook(dune);
 
