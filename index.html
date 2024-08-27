@@ -1,33 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="script.js" defer></script>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
     <title>JS Library Project</title>
-</head>
-<body>
-    <div id="card-container">
-    </div>
+  </head>
+  <body>
+    <div id="card-container"></div>
     <div class="sidebar">
-        <button id="new-book">NEW BOOK</button>
-        <form action="#" id="add-book" class="hidden">
-            <label for="title">Title:</label><br>
-            <input type="text" id="title" name="title" required><br>
-            <label for="author">Author:</label><br>
-            <input type="text" id="author" name="author" required><br>
-            <label for="page-num">Page Count:</label><br>
-            <input type="text" id="page-num" name="page-num" required><br>
-            <fieldset id="read-or-not">
-                <legend>Have you read this book?</legend>
-                <input type="radio" id="yes" name="read" value="true">
-                <label for="yes">Yes</label>
-                <input type="radio" id="no" name="read" value="false">
-                <label for="no">No</label>
-            </fieldset>
-            <button type="submit">Add book</button>
-        </form>
+      <button id="new-book">NEW BOOK</button>
+      <form action="#" id="add-book" class="hidden" novalidate>
+        <label for="title">Title:</label><br />
+        <input type="text" id="title" name="title" required /><br />
+        <label for="author">Author:</label><br />
+        <input type="text" id="author" name="author" required /><br />
+        <label for="page-num">Page Count:</label><br />
+        <input type="number" id="page-num" name="page-num" required /><br />
+        <fieldset id="read-or-not">
+          <legend>Have you read this book?</legend>
+          <input type="radio" id="yes" name="read" value="true" required />
+          <label for="yes">Yes</label>
+          <input type="radio" id="no" name="read" value="false" required />
+          <label for="no">No</label>
+        </fieldset>
+        <button type="submit">Add book</button>
+      </form>
     </div>
-</body>
+  </body>
 </html>
